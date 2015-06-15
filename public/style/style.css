@@ -1,0 +1,112 @@
+body{
+    background-image: url('../image/background.png');
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.content {
+    height: calc(100vh - 114px);
+}
+
+footer.page-footer {
+    padding-top: 0;
+    margin-top: 0;
+}
+.article{
+    padding: 100px;
+}
+.close {
+    display: block;
+    clear: left;
+}
+
+textarea.materialize-textarea{
+    overflow: visible;
+    height: 500px;
+}
+
+img{
+    margin: 5px;
+    padding: 0;
+}
+
+h3 {
+    margin: 0;
+}
+
+#lessons {
+    height: 500px;
+}
+
+.company-name {
+    display: inline-block;
+    margin-left: 100px;
+}
+
+/*Стили приложение по тернировке памяти*/
+
+.viewApp {
+    min-height: 510px;
+    min-width: 550px;
+    text-align: center;
+}
+
+.app {
+    min-height: 95%;
+    width: 95%;
+    margin: 0 auto;
+}
+
+
+.timer{
+    height: 200px;
+    width: 200px;
+    margin: 30px auto 0 auto;
+    padding: 60px;
+    font-size: 50px;
+    border-radius: 100px;
+    text-align: center;
+}
+
+.collection {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.collection li {
+    height: 34px;
+}
+
+.input-field label {
+    color: #fff;
+}
+
+/* цвет label при фокусе */
+.input-field input[type=text]:focus + label {
+    color: #000;
+}
+/* цвет нижней линии для label при фокусе */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+/* цвет при валидном значении */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #0f0;
+    box-shadow: 0 1px 0 0 #0f0;
+}
+/* цвет при невалидном значении */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #f00;
+    box-shadow: 0 1px 0 0 #f00;
+}
+
+
+

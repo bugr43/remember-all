@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>30 дневный курс по развитию памяти</title>
+    <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css"/>
+    <link rel="stylesheet" href="style/style.css"/>
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <!--Сюда отрендерится шаблон #menu_template -->
+    <ul id='lessons' class='menu right hide-on-med-and-down dropdown-content'>
+
+    </ul>
+
+    <!--Обо мне-->
+    <div class="card blue accent-1 modal" id="contacts">
+        <div class="modal-content">
+            <h4>Контакты</h4>
+            <ul>
+                <li>Github: <a class="white-text" href="https://github.com/bugr43">bugr43</a></li>
+                <li>Vk.com: <a class="white-text" href="https://vk.com/nikolayostrizhny">Николай Острижний</a></li>
+                <li>email <a class="white-text" href="mailto:nikolayostryzhny@gmail.com">nicolayostryzhny@gmail.com</a></li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="close modal-action modal-close blue waves-effect waves-green btn-flat">Закрыть</a>
+        </div>
+    </div>
+
+    <!--Сюда отрендерится приложение для тренировки памяти-->
+    <div class="viewApp card blue accent-1 modal" id="traning">
+
+    </div>
+
+    <!-- Модальное окно статьи #article_template-->
+    <div id="modalarticle" class="modal modal-fixed-footer">
+        <!-- Сюда будет рендерится шаблон статьи -->
+        <div class="article modal-content">
+
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="close modal-action modal-close blue waves-effect waves-green btn-flat">Закрыть</a>
+        </div>
+    </div>
+
+
+    <!--Начало шапки сайта-->
+    <header id="header">
+        <nav class="nav-wrapper blue accent-1">
+            <div class="logo-container brand-logo">
+            <a href="#" class="">
+                <img class="brand-logo" src="image/logo.png" alt="logo"/>
+                <span class="company-name">
+                    Remember all
+                </span>
+            </a>
+            </div>
+            <ul class="right hide-on-med-and-down">
+                <li><a class='lesson waves-effect waves-light' href='#' data-activates='lessons'>30 дневная программа по развитию памяти<i class="mdi-navigation-arrow-drop-down right"></i></a></li>
+                <li><a class='waves-effect waves-light show-traning' href='#traning'>Тренировка</a></li>
+                <li><a class='waves-effect waves-light show-contacts' href='#contacts'>Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Конец шапки сайта-->
+
+
+    <!--Начало основного содержимого-->
+    <main class="content container">
+        <div class="card blue accent-1">
+            <div class="card-content white-text">
+                <span class="card-title">Развивай память сейчас!</span>
+                <p>
+                    Если вы серьезно относитесь к совоей памяти, просто выполните эту 30-ти дневную тренировочную
+                    программу, и вскоре ваша мозг перестанет вас подводить.
+                </p>
+                <p>
+                    Думаете это нереально? Совершенно реально! Все, что вам нужно для достижения этой цели – хороший план тренировок, немного дисциплины и около 15 минут в день.
+                </p>
+                <p>
+                    Без сомнения некоторые из вас могут запомнить длинный список заданий перечисленными вашим шефом, родными, преподавателями,
+                    но давайте смотреть правде в глаза, таких явное меньшенство, большинство из вас читающих эти строки не смогут вспомнить и 5
+                    из 10 задач.
+                </p>
+                <p>
+                    Однако неважно к какой группе людей вы относитесь. Если вы будете следовать этой прогрессивной тренирововчной программе,
+                    то, я уверен, вы вскоре сможете запомнить все 30 из 30-и заданных вам задач!
+                </p>
+                <br/>
+                <div class="divider"></div>
+                <br/>
+                <p>Так же вы можете потренироваться в приобретенных навыках с помощью раздела меню "Тренировка", или нажать кнопку ниже. </p>
+            </div>
+            <div class="card-action">
+                <a class='show-traning' href='#traning'>Начать тренировку</a>
+            </div>
+        </div>
+    </main>
+    <!--Конец основного содержимого-->
+
+    <!--Начало футера-->
+    <footer id="footer" class="page-footer blue accent-1">
+        <div class="footer-copyright lighten-2">
+            <div class="container">
+                © 2015 Remember all &mdash; запоминай все!
+                <span class="grey-text text-lighten-4 right">Авторский проект Острижнего Николая</span>
+            </div>
+        </div>
+    </footer>
+    <!--Конец футера-->
+
+    <!--Шаблон выпадающего меню списка уроков pages - список уроков; page.name - название урока-->
+    <script id="menu_tamplate" type="text/template">
+        <% pages.forEach(function(page){ %>
+        <li class="name left">
+            <a class="modal-trigger" href="#modalarticle">
+                <%= page.name %>
+            </a>
+        </li>
+        <%}) %>
+    </script>
+
+    <!--Шаблон статьи page - имя статьи; content - содержимое статьи-->
+    <script type="text/template" id="article_template">
+        <h1><%= page %></h1>
+        <p class="page"><%= content %></p>
+    </script>
+
+    <!-- Стартовое состояние приложения -->
+    <script type="text/template" id="start_state_template">
+        <div id="start_state">
+            <h6 class="titleApp card-title">Нажмите кнопку "Старт" когда будете готовы</h6>
+
+            <div class="app card-content blue accent-2 white-text">
+                <h5 class="instruction">Нажмите кнопку "Старт" чтобы начать</h5>
+                <button class="start waves-effect waves-light btn transparent">Старт</button>
+            </div>
+        </div>
+    </script>
+
+
+    <!--Состояние подготовки к выполнению приложения тфймер -->
+    <script type="text/template" id="timer_state_template">
+        <div id="timer_state">
+            <h6 class="titleApp card-title">Упражнение начнется через...</h6>
+
+            <div class="app">
+                <div class="timer blue accent-2 white-text">
+                    <span><%= time %></span>
+                </div>
+            </div>
+        </div>
+    </script>
+
+
+    <!--Шаблон отвечающий за отображение списка случайных слов из базы данных которые нужно запомнить-->
+    <script type="text/template" id="exercise_state_template">
+        <div id="exercise_state">
+            <h6 class="titleApp card-title">Запомните предложенный список слов</h6>
+
+            <div class="app">
+                <!--<div class="exercise blue-grey darken-3 white-text">-->
+                    <ul class="collection white-text">
+                        <li class="word1 collection-item blue accent-2">&nbsp</li>
+                        <li class="word2 collection-item blue accent-2">&nbsp</li>
+                        <li class="word3 collection-item blue accent-2">&nbsp</li>
+                        <li class="word4 collection-item blue accent-2">&nbsp</li>
+                        <li class="word5 collection-item blue accent-2">&nbsp</li>
+                        <li class="word6 collection-item blue accent-2">&nbsp</li>
+                        <li class="word7 collection-item blue accent-2">&nbsp</li>
+                        <li class="word8 collection-item blue accent-2">&nbsp</li>
+                        <li class="word9 collection-item blue accent-2">&nbsp</li>
+                        <li class="word10 collection-item blue accent-2">&nbsp</li>
+                    </ul>
+                <!--</div>-->
+                <p class="timer-info white-text col s3">Секундомер: <%= timeTo %>  с.</p>
+                <button class="ready btn waves-effect waves-light blue accent-2">Готов(а)</button>
+            </div>
+        </div>
+    </script>
+
+
+    <!--Шаблон отвечающий за финальное состояние приложения ввод и проверка запомненых слов-->
+    <script type="text/template" id="check_state_template">
+        <div id="check_state">
+            <h6 class="titleApp card-title">Введите все запомненые слова</h6>
+            <div class="app row">
+                <ul class="col s5 offset-s1">
+                    <li class="input-field">
+                        <input class="input-word" id="word1" type="text" width=""/>
+                        <label for="word1">Слово 1</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word2" type="text"/>
+                        <label for="word2">Слово 2</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word3" type="text"/>
+                        <label for="word3">Слово 3</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word4" type="text"/>
+                        <label for="word4">Слово 4</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word5" type="text"/>
+                        <label for="word5">Слово 5</label>
+                    </li>
+                </ul>
+                <ul class="col s5">
+                    <li class="input-field">
+                        <input class="input-word" id="word6" type="text"/>
+                        <label for="word6">Слово 6</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word7" type="text"/>
+                        <label for="word7">Слово 7</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word8" type="text"/>
+                        <label for="word8">Слово 8</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word9" type="text"/>
+                        <label for="word9">Слово 9</label>
+                    </li>
+                    <li class="input-field">
+                        <input class="input-word" id="word10" type="text"/>
+                        <label for="word10">Слово 10</label>
+                    </li>
+                </ul>
+                <p class="white-text"><br />Потрачено времени: <%= timeTo %> с.</p> <button class="restart waves-effect waves-light btn blue accent-2">Еще раз</button>
+            </div>
+        </div>
+    </script>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/materialize/dist/js/materialize.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/memorycard.js"></script>
+    <script>
+        $( document).ready(function(){
+            $('.lesson').dropdown(); //Инициализируем выпадающий список уроков
+            $('.show-traning').leanModal();//Инициализируем модальное окно приложения для тренировки памяти
+            $('.show-contacts').leanModal();//Инициализируем модальное окно для отоброжения информации обо мне
+        });
+    </script>
+</body>
+</html>
